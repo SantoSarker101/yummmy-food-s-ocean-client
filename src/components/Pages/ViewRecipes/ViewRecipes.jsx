@@ -1,12 +1,13 @@
 import React from 'react';
 import { Card, Container } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
+import { FaHeart } from 'react-icons/fa';
 
 const ViewRecipes = () => {
 	const viewRecipesData = useLoaderData()
 	console.log(viewRecipesData);
 
-	const {id,photo,name,yearsOfExperience,recipesItems,likes,description} = viewRecipesData;
+	const {photo,name,yearsOfExperience,recipesItems,likes,description} = viewRecipesData;
 	return (
 		<div>
 
@@ -30,7 +31,9 @@ const ViewRecipes = () => {
 						<div>
 							<p className='text-success fw-bold'>{description}</p>
 
-							<p><span className='text-info fw-bold'>{likes}</span></p>
+							<p>
+								<FaHeart className='text-primary me-1'></FaHeart>
+								<span className='text-info fw-bold'>{likes}</span></p>
 
 							<p>Numbers of Recipes: <span className='text-success fw-bold'>
 								{recipesItems} Items
