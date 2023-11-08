@@ -2,6 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
+import { FaUserCircle } from 'react-icons/fa';
 
 const Header = () => {
 	return (
@@ -15,9 +16,9 @@ const Header = () => {
 
 
 
-			<Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
+			<Navbar collapseOnSelect expand="lg"  className="bg-body-secondary">
 			<Container>
-				<Navbar.Brand className=''>
+				<Navbar.Brand>
 					<Link to='/' className='text-decoration-none text-success fw-bolder'>Yummmy Food's Ocean</Link>
 				</Navbar.Brand>
 
@@ -27,19 +28,19 @@ const Header = () => {
 
 				<Nav className="mx-auto text-dark">
 					<div className='text-danger'>
-						<NavLink to='/' className={({isActive}) => (isActive ? 'text-success' : 'text-decoration-none text-dark')}>
+						<NavLink to='/' className={({isActive}) => (isActive ? 'text-success fw-bolder' : 'text-decoration-none text-dark')}>
 						Home
 					</NavLink>
 					</div>
 
-					<div className='mx-4'>
-						<NavLink to='/blog' className={({isActive}) => (isActive ? 'text-success' : 'text-decoration-none text-dark')}>
+					<div className='mx-lg-4'>
+						<NavLink to='/blog' className={({isActive}) => (isActive ? 'text-success fw-bolder' : 'text-decoration-none text-dark')}>
 						Blog
 					</NavLink>
 					</div>
 
 					<div>
-						<NavLink to='/about-us' className={({isActive}) => (isActive ? 'text-success' : 'text-decoration-none text-dark')}>
+						<NavLink to='/about-us' className={({isActive}) => (isActive ? 'text-success fw-bolder' : 'text-decoration-none text-dark')}>
 						About Us
 					</NavLink>
 					</div>
@@ -47,7 +48,7 @@ const Header = () => {
 
 				</Nav>
 
-				<Nav>
+				<Nav className='d-lg-flex align-items-center'>
 
 
 				<div>
@@ -56,17 +57,27 @@ const Header = () => {
 					</NavLink>
 				</div>
 
-				<div className='mx-3'>
+				<div className='mx-lg-3'>
 					<NavLink to='/register' className={({isActive}) => (isActive ? 'text-success' : 'text-decoration-none text-dark')}>
 						<Button variant="dark">Register</Button>
 					</NavLink>
 				</div>
 
 
+				<div className='mx-lg-3'>
+					<NavLink to='/logout' className={({isActive}) => (isActive ? 'text-success' : 'text-decoration-none text-dark')}>
+						<Button variant="dark">Log out</Button>
+					</NavLink>
+				</div>
 
-					<Nav.Link eventKey={2} href="#memes">
-					Profile
-					</Nav.Link>
+
+				<div className='mx-lg-3 fs-1'>
+					<NavLink className={({isActive}) => (isActive ? 'text-success' : 'text-dark')}>
+					<FaUserCircle></FaUserCircle>
+					</NavLink>
+				</div>
+
+
 				</Nav>
 
 				</Navbar.Collapse>
