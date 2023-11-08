@@ -1,9 +1,10 @@
 import React from 'react';
-import { Button, Card, CardGroup, Col, Container, Row } from 'react-bootstrap';
+import { Button, Card} from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const ChefRecipeCards = ({chefRecipesData}) => {
 
-	const {photo,name,yearsOfExperience,recipesItems,likes} = chefRecipesData
+	const {id,photo,name,yearsOfExperience,recipesItems,likes} = chefRecipesData
 	return (
 		<div>
 
@@ -29,7 +30,9 @@ const ChefRecipeCards = ({chefRecipesData}) => {
 					<p><span className='text-info fw-bold'>{likes}</span></p>
 				</Card.Text>
 
-				<Button className='fw-bold' variant="success">View Recipes</Button>
+				<Link to={`/viewRecipes/${id}`}>
+					<Button className='fw-bold' variant="success">View Recipes</Button>
+				</Link>
 
 			</Card.Body>
 
