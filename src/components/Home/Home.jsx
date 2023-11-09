@@ -6,6 +6,7 @@ import ChefRecipeCards from '../Pages/chefRecipeCards/ChefRecipeCards';
 import LoadingSpinner from '../Pages/LoadingSpinner/LoadingSpinner';
 import QuickRecipes from '../Pages/QuickRecipes/QuickRecipes';
 import KnowUs from '../Pages/KnowUs/KnowUs';
+import CookingQuestion from '../Pages/CookingQuestion/CookingQuestion';
 
 const Home = () => {
 	const [recipesData,setRecipesData] = useState([]);
@@ -72,8 +73,14 @@ const Home = () => {
 
 
 
-			<div className='mt-5'>
+			<div className='my-5'>
 				<KnowUs></KnowUs>
+			</div>
+
+
+
+			<div>
+				<CookingQuestion></CookingQuestion>
 			</div>
 
 
