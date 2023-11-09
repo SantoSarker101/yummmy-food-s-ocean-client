@@ -2,18 +2,19 @@ import React from 'react';
 import { Card, Container } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
 import { FaHeart } from 'react-icons/fa';
+import MyRecipesData from '../MyRecipesData/MyRecipesData';
 
 const ViewRecipes = () => {
 	const viewRecipesData = useLoaderData()
 	console.log(viewRecipesData);
 
-	const {photo,name,yearsOfExperience,recipesItems,likes,description} = viewRecipesData;
+	const {photo,name,yearsOfExperience,recipesItems,likes,description,numbersOfRecipes} = viewRecipesData;
 	return (
 		<div>
 
 			<div>
 
-				<Card className="mb-3 mt-5">
+				<Card className="mb-5 mt-5">
 
 				<div className="row g-0">
 					<div className="col-md-4">
@@ -24,7 +25,7 @@ const ViewRecipes = () => {
 
 					<div className="col-md-8">
 
-					<Card.Body className="">
+					<Card.Body className="ms-lg-5">
 
 						<Card.Title className='text-success fw-bold fs-1'>{name}</Card.Title>
 
@@ -55,6 +56,22 @@ const ViewRecipes = () => {
 				</Card>
 
 			</div>
+
+
+
+
+			<div className='mt-5'>
+
+				<h2 className='text-center mt-5 text-success fw-bold text-decoration-underline'>My Recipes Information</h2>
+
+
+				<div>
+				{
+					numbersOfRecipes.map(myRecipes => <MyRecipesData key={MyRecipesData.name} myRecipes={myRecipes}></MyRecipesData>)
+				}
+				</div>
+			</div>
+
 		</div>
 	);
 };
