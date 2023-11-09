@@ -1,5 +1,7 @@
 import React from 'react';
 import { Card, Container } from 'react-bootstrap';
+import { Rating } from '@smastrom/react-rating'
+import '@smastrom/react-rating/style.css'
 
 const MyRecipesData = ({myRecipes}) => {
 	const {name,img,ingredients,cookingMethod,rating} = myRecipes;
@@ -42,9 +44,14 @@ const MyRecipesData = ({myRecipes}) => {
 								{cookingMethod} Items
 							</span></p>
 
-							<p>Years of Experience: <span className='text-success fw-bold'>
-								{} Years
-							</span></p>
+							<p className='d-flex align-items-center'>
+								<Rating style={{ maxWidth: 150 }} value={rating} readOnly />
+
+								<span className='text-success fw-bold ms-2'>
+									{rating}
+								</span>
+
+							</p>
 
 						</div>
 
