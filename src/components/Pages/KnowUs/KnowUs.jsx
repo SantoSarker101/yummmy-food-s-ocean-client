@@ -1,9 +1,13 @@
 import React from 'react';
+import Lottie from "lottie-react";
+import chefCookingAnimation from '../../../assets/chefs cooking animation.json'
 
 const KnowUs = () => {
 	return (
 		<div>
-			<h1>get to know us</h1>
+			<div>
+				<Lottie animationData={chefCookingAnimation} loop={true} />;
+			</div>
 		</div>
 	);
 };

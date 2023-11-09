@@ -72,7 +72,9 @@ const Home = () => {
 
 
 
-			
+			<div className='mt-5'>
+				<KnowUs></KnowUs>
+			</div>
 
 
 		</>
