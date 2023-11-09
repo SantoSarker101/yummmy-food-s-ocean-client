@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, Container } from 'react-bootstrap';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigation } from 'react-router-dom';
 import { FaHeart } from 'react-icons/fa';
 import MyRecipesData from '../MyRecipesData/MyRecipesData';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
 const ViewRecipes = () => {
+
+	const [fold,setFold] = useState(true)
+
 	const viewRecipesData = useLoaderData()
 	console.log(viewRecipesData);
 
 	const {photo,name,yearsOfExperience,recipesItems,likes,description,numbersOfRecipes} = viewRecipesData;
+
+
 	return (
 		<div>
 
@@ -29,11 +35,25 @@ const ViewRecipes = () => {
 
 						<Card.Title className='text-success fw-bold fs-1'>{name}</Card.Title>
 
-						<div>
-							<p className='text-success fw-bold'>{description}</p>
+						<>
+							{
+								fold ? (
+									<>
+										<p className='text-success fw-bold mb-1'>{description.substring(0,300)}.....</p>
 
-							<p>
-								<FaHeart className='text-primary me-1'></FaHeart>
+										<span onClick={() => setFold(!fold)} className='text-primary' style={{cursor: 'pointer'}}>Read More</span>
+									</> ) :
+
+									(<>
+										<p className='text-success fw-bold mb-1'>{description}</p>
+
+										<span onClick={() => setFold(!fold)} className='text-primary cursor-pointer' style={{cursor: 'pointer'}}>Read Less</span>
+									</>)
+
+							}
+
+							<p className='mt-4'>
+								<FaHeart className='text-danger me-1'></FaHeart>
 								<span className='text-info fw-bold'>{likes}</span></p>
 
 							<p>Numbers of Recipes: <span className='text-success fw-bold'>
@@ -44,7 +64,7 @@ const ViewRecipes = () => {
 								{yearsOfExperience} Years
 							</span></p>
 
-						</div>
+						</>
 
 
 					</Card.Body>
@@ -67,7 +87,7 @@ const ViewRecipes = () => {
 
 				<div>
 				{
-					numbersOfRecipes.map(myRecipes => <MyRecipesData key={MyRecipesData.name} myRecipes={myRecipes}></MyRecipesData>)
+					numbersOfRecipes.map((myRecipes,index) => <MyRecipesData key={index} myRecipes={myRecipes}></MyRecipesData>)
 				}
 				</div>
 			</div>

@@ -29,7 +29,7 @@ const ChefRecipeCards = ({chefRecipesData}) => {
 
 
 					<p>
-						<FaHeart className='text-primary me-1'></FaHeart>
+						<FaHeart className='text-success me-1'></FaHeart>
 
 						<span className='text-info fw-bold'>{likes}</span></p>
 				</>

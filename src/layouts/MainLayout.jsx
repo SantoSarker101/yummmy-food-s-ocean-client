@@ -10,7 +10,11 @@ const MainLayout = () => {
 		<div>
 			<Header></Header>
 			<Outlet></Outlet>
-			<Footer></Footer>
+			<div className='d-flex flex-column'>
+
+				<Footer></Footer>
+				
+			</div>
 			<ToastContainer></ToastContainer>
 		</div>
 	);

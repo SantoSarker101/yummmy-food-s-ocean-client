@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import bgImageChef from '../../assets/cooking-chef-cartoon.png'
-import { Button, Card, Col, Container, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Button, Card, Container, Row } from 'react-bootstrap';
+import { Link, useNavigation } from 'react-router-dom';
 import ChefRecipeCards from '../Pages/chefRecipeCards/ChefRecipeCards';
+import LoadingSpinner from '../Pages/LoadingSpinner/LoadingSpinner';
 
 const Home = () => {
 	const [recipesData,setRecipesData] = useState([]);
@@ -13,6 +14,13 @@ const Home = () => {
 		.then(data => setRecipesData(data))
 		.catch(error => console.error(error))
 	},[])
+
+	const navigation = useNavigation()
+	console.log(navigation.state);
+
+	if(navigation.state === 'loading'){
+		return <LoadingSpinner></LoadingSpinner>
+	}
 
 	return (
 		<>
@@ -41,7 +49,7 @@ const Home = () => {
 
 
 			<div className='mt-5'>
-				<h1 className='mb-3 text-center text-success-emphasis fw-bold'>Meet Our Chefs</h1>
+				<h1 className='mb-3 text-center text-success fw-bold'>Meet Our Chefs</h1>
 
 				<div>
 				<Container>

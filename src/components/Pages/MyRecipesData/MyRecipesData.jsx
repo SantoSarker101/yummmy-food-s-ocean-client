@@ -34,17 +34,17 @@ const MyRecipesData = ({myRecipes}) => {
 
 						<div>
 
-							<div>
+							<>
 
 								<p className='fw-bold'>Ingredients: </p>
 
 								{
-									ingredients.map(ingredient => <p className='text-success'>
+									ingredients.map((ingredient,index) => <p className='text-success' key={index}>
 										# {ingredient}
 									</p>)
 								}
 
-							</div>
+							</>
 
 							<p className='fw-bold'>Cooking Method: <span className='text-success fw-bold'>
 								{cookingMethod} Items
