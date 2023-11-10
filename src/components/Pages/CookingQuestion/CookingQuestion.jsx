@@ -43,7 +43,7 @@ const CookingQuestion = () => {
 
 						</Row>
 
-						<Button className='mt-5' variant="success">Submit</Button>
+						<Button className='mt-5' variant="success">Send</Button>
 
 					</Container>
 

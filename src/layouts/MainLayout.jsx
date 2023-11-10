@@ -9,12 +9,11 @@ const MainLayout = () => {
 	return (
 		<div>
 			<Header></Header>
-			<Outlet></Outlet>
-			<div className='d-flex flex-column'>
 
-				<Footer></Footer>
-				
-			</div>
+			<Outlet></Outlet>
+
+			<Footer></Footer>
+
 			<ToastContainer></ToastContainer>
 		</div>
 	);

@@ -40,7 +40,7 @@ const Header = () => {
 					</div>
 
 					<div>
-						<NavLink to='/about-us' className={({isActive}) => (isActive ? 'text-success fw-bolder' : 'text-decoration-none text-dark')}>
+						<NavLink to='/about' className={({isActive}) => (isActive ? 'text-success fw-bolder' : 'text-decoration-none text-dark')}>
 						About Us
 					</NavLink>
 					</div>

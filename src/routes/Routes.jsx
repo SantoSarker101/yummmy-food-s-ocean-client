@@ -5,6 +5,7 @@ import Blog from "../components/Pages/Blog/Blog";
 import ViewRecipes from "../components/Pages/ViewRecipes/ViewRecipes";
 import LoadingSpinner from "../components/Pages/LoadingSpinner/LoadingSpinner";
 import ErrorPage from "../components/Pages/ErrorPage/ErrorPage";
+import About from "../components/Pages/About/About";
 
 const router = createBrowserRouter([
 	{
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
 			{
 				path: '/blog',
 				element: <Blog></Blog>
+			},
+			{
+				path: '/about',
+				element: <About></About>
 			},
 			{
 				path: '/viewRecipes/:id',

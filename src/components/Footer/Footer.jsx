@@ -4,7 +4,10 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
 	return (
-		<footer className='bg-dark'>
+		<footer className='bg-dark
+		border-top
+		border-light'>
+			{/* <hr className='border-top-0 border-bottom-0' /> */}
 			<Container>
 
 				<Card className='border-0 bg-dark'>
@@ -23,9 +26,9 @@ const Footer = () => {
 							<Link className='me-4 lh-lg text-light'>Newsroom</Link>
 							<Link className='me-4 lh-lg text-light'>Advertise</Link>
 							<Link className='me-4 lh-lg text-light'>Help</Link>
-							<Link className='me-4 lh-lg text-light'>TV Ratings</Link>
+							<Link className='me-4 lh-lg text-light'>Recipes Ratings</Link>
 							<Link className='me-4 lh-lg text-light'>Online Closed Captioning</Link>
-							<Link className='me-4 lh-lg text-light'>California Privacy Notice</Link>
+							<Link className='me-4 lh-lg text-light'>American Privacy Notice</Link>
 							<Link className='me-4 lh-lg text-light'>Accessibilit</Link>
 							<Link className='me-4 lh-lg text-light'>Newsletters</Link>
 							<Link className='me-4 lh-lg text-light'>Yummmy Foods Ocean, Inc.</Link> <br />
@@ -36,7 +39,7 @@ const Footer = () => {
 						<div className="blockquote-footer mb-4">
 							{/* Someone famous in <cite title="Source Title">Source Title</cite> */}
 							<Link className='me-5 text-info'>International Editions</Link>
-							<Link className='me-5 text-info lh-lg'>The Discovery Family of Networks</Link>
+							<Link className='me-5 text-info lh-lg'>Yummmy Foods Ocean Family of Networks</Link>
 							<span className='me-5 text-info'> &copy; 2023 Santo Sarker. Yummmy Foods Ocean, Inc. or its subsidiaries and affiliates. All rights reserved. </span>
 						</div>
 
