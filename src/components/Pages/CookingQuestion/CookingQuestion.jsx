@@ -19,6 +19,8 @@ const CookingQuestion = () => {
 					<Container>
 
 
+					<Row class="row g-3 text-center mx-auto">
+
 					<FloatingLabel htmlFor="text area">Your Question</FloatingLabel>
 
 						<Form.Control
@@ -28,8 +30,6 @@ const CookingQuestion = () => {
 							style={{ height: '100px', width: '25rem' }}
 						/>
 
-
-					<Row class="row g-3 text-center mx-auto">
 
 						<Col className="col-md-6 mt-4">
 							<label htmlFor="name" className="form-label">Name</label>
