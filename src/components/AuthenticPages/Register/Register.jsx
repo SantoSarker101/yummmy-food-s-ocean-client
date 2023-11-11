@@ -1,6 +1,7 @@
 import React from 'react';
-import { Button, Col, Container, Form, Row } from 'react-bootstrap';
+import { Button, Col, Container, Figure, Form, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import yummy from '../../../../public/yummy6.png'
 
 const Register = () => {
 	return (
@@ -8,10 +9,21 @@ const Register = () => {
 
 		<Container className='pt-5 pb-5'>
 
-		<h2 className='mt-3 mb-5 text-center' >Sign Up to Yummmy Foods Ocean</h2>
+
 
 		<Row>
 			<Col xs={12} md={8} lg={5} className='mx-auto p-5' style={{boxShadow: '0 4px 8px rgba(255, 255, 255, 0.2'}}>
+
+				<Figure className='d-flex justify-content-center'>
+					<Figure.Image
+						// width={171}
+						// height={180}
+						// alt="171x180"
+						src={yummy}
+					/>
+				</Figure>
+
+				<h2 className='mt-3 mb-5 text-center' >Sign Up to Yummmy Foods Ocean</h2>
 
 				<Form>
 
@@ -19,7 +31,7 @@ const Register = () => {
 				<Form.Group className="mb-4" controlId="formBasicEmail">
 					<Form.Label>Your Name</Form.Label>
 
-					<Form.Control className='text-center' type="name"
+					<Form.Control className='text-center' type="text"
 					name='name'
 					placeholder="Your Name" required />
 
@@ -37,7 +49,7 @@ const Register = () => {
 				</Form.Group>
 
 
-				<Form.Group className="mb-4" controlId="formBasicPassword">
+				<Form.Group className="mb-4 mt-4" controlId="formBasicPassword">
 					<Form.Label>Password</Form.Label>
 					<Form.Control
 					className='text-center'type="password"
@@ -49,32 +61,36 @@ const Register = () => {
 				<Form.Group className="mb-4" controlId="formBasicPassword">
 					<Form.Label>Photo URL</Form.Label>
 					<Form.Control
-					className='text-center'type="photo"
+					className='text-center'type="text"
 					name="photo"
 					placeholder="Photo URL" />
 				</Form.Group>
 
 
-				<Form.Group className="mb-3" controlId="formBasicCheckbox">
-					<Form.Check type="checkbox" label="Check me out" />
+				<Form.Group className="mb-4" controlId="formBasicCheckbox">
+					<Form.Check type="checkbox"
+					name='accept'
+					label="Accept Terms and Conditions" />
 				</Form.Group>
 
-				<Button variant="outline-light" type='submit'>Submit</Button>
+				<Button className='mb-3' variant="outline-light" type='submit'>Submit</Button>
 				<br /><br />
 
 
-				<Form.Text className="text-warning fw-bold">
-					Already Have an Account ? <Link to='/login' className='text-info'>Login</Link>
+				<Form.Text className="text-warning fw-bold mt-5 text-center">
+					<div>
+						Already Have an Account ? <Link to='/login' className='text-info'>Login</Link>
+					</div>
 				</Form.Text>
 
 
 
-				<Form.Text className="text-warning fw-bold">
+				<Form.Text className="text-warning fw-bold mt-4">
 
 				</Form.Text>
 
 
-				<Form.Text className="text-info fw-bold">
+				<Form.Text className="text-info fw-bold mt-4">
 
 				</Form.Text>
 
