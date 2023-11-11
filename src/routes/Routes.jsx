@@ -6,6 +6,8 @@ import ViewRecipes from "../components/Pages/ViewRecipes/ViewRecipes";
 import LoadingSpinner from "../components/Pages/LoadingSpinner/LoadingSpinner";
 import ErrorPage from "../components/Pages/ErrorPage/ErrorPage";
 import About from "../components/Pages/About/About";
+import Register from "../components/AuthenticPages/Register/Register";
+import Login from "../components/AuthenticPages/Login/Login";
 
 const router = createBrowserRouter([
 	{
@@ -24,6 +26,14 @@ const router = createBrowserRouter([
 			{
 				path: '/about',
 				element: <About></About>
+			},
+			{
+				path: '/register',
+				element: <Register></Register>
+			},
+			{
+				path: 'login',
+				element: <Login></Login>
 			},
 			{
 				path: '/viewRecipes/:id',

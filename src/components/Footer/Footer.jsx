@@ -20,17 +20,17 @@ const Footer = () => {
 							{/* {' '} */}
 							<Link className='me-4 lh-lg text-light'>Site Map</Link>
 							<Link className='me-4 lh-lg text-light'>Visitor Agreement</Link>
-							<Link className='me-4 lh-lg text-light'>AdChoices </Link>
+							<Link className='me-4 lh-lg text-light'>Choice Recipes </Link>
 							<Link className='me-4 lh-lg text-light'>Privacy Notice</Link>
 							<Link className='me-4 lh-lg text-light'>About</Link>
-							<Link className='me-4 lh-lg text-light'>Newsroom</Link>
+							<Link className='me-4 lh-lg text-light'>Recipe Room</Link>
 							<Link className='me-4 lh-lg text-light'>Advertise</Link>
 							<Link className='me-4 lh-lg text-light'>Help</Link>
 							<Link className='me-4 lh-lg text-light'>Recipes Ratings</Link>
 							<Link className='me-4 lh-lg text-light'>Online Closed Captioning</Link>
 							<Link className='me-4 lh-lg text-light'>American Privacy Notice</Link>
 							<Link className='me-4 lh-lg text-light'>Accessibilit</Link>
-							<Link className='me-4 lh-lg text-light'>Newsletters</Link>
+							<Link className='me-4 lh-lg text-light'>Chefs</Link>
 							<Link className='me-4 lh-lg text-light'>Yummmy Foods Ocean, Inc.</Link> <br />
 							<Link className='text-light text-decoration-none lh-lg'>Do Not Sell or Share my Personal Information</Link>
 							{/* {' '} */}

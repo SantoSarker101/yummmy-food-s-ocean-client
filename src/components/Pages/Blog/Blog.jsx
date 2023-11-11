@@ -7,7 +7,7 @@ const Blog = () => {
 			<Container>
 			<h1 className='text-info fw-bold text-center pt-5'>Some Questions Answer</h1>
 
-			<Card className='mt-5  text-decoration-underlinetext-success fw-bold'>
+			<Card className='mt-5 text-success fw-bold'>
 				<Card.Header as="h5" className='text-success fw-bold text-center fs-3'>differences between uncontrolled and controlled components</Card.Header>
 
 				<Card.Body className=''>
