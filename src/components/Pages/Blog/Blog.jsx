@@ -11,9 +11,9 @@ const Blog = () => {
 				<Card.Header as="h5" className='text-success fw-bold text-center fs-3'>differences between uncontrolled and controlled components</Card.Header>
 
 				<Card.Body className=''>
-					{/* <Card.Title>Special title treatment</Card.Title> */}
+					
 
-					<Card.Text>
+					<div>
 					<span className='text-info fw-bold text-decoration-underline'>Controlled Components:</span>
 					<br />
 
@@ -25,10 +25,10 @@ const Blog = () => {
 					<span className='text-danger fw-bold text-decoration-underline'>Data Flow: </span> The component receives the current state and value as props and notifies changes through callback functions.
 					<br />
 					<span className='text-danger fw-bold text-decoration-underline'>Example:</span> If you have an input field, you might control it by storing its value in the component's state and updating the state with an onChange handler.
-					</Card.Text> <br /><br />
+					</div> <br /><br />
 
 
-					<Card.Text>
+					<div>
 					<span className='text-info fw-bold text-decoration-underline'>Uncontrolled Components:</span>
 					<br />
 
@@ -41,9 +41,9 @@ const Blog = () => {
 					<span className='text-danger fw-bold text-decoration-underline'>Ref Usage:</span> Refs are often used to interact with and get values from the DOM elements directly.
 					<br />
 					<span className='text-danger fw-bold text-decoration-underline'>Example:</span> In the case of an input field, you might use a ref to get its value without explicitly storing it in the components state.
-					</Card.Text>
+					</div>
 
-					{/* <Button variant="primary">Go somewhere</Button> */}
+
 				</Card.Body>
 
 			</Card>
@@ -56,8 +56,8 @@ const Blog = () => {
 				</Card.Header>
 
 				<Card.Body className=''>
-					{/* <Card.Title>Special title treatment</Card.Title> */}
-					<Card.Text>
+
+					<div>
 
 					<p>In React, you can use PropTypes to specify the types of props that your component should receive. This helps you catch bugs early and communicate the expected types of data for each prop. PropTypes is a separate library that you can use in conjunction with React.Heres an example of how you can use PropTypes to validate React props:</p>
 
@@ -74,12 +74,10 @@ const Blog = () => {
 					<p>If you provide incorrect prop types or miss a required prop, you will see warnings in the console during development, which can be very helpful for debugging and preventing potential issues.
 
 					Remember that PropTypes checks are only performed in development mode, so they won't impact the performance of your production build. Its a valuable tool for catching potential issues early in the development process.</p>
-					</Card.Text>
+					</div>
 
-					<Card.Text>
 
-					</Card.Text>
-					{/* <Button variant="primary">Go somewhere</Button> */}
+
 				</Card.Body>
 
 			</Card>
@@ -91,8 +89,8 @@ const Blog = () => {
 				<Card.Header as="h5" className='text-success fw-bold text-center  fs-3'>What difference between nodejs and express js?</Card.Header>
 
 				<Card.Body className=''>
-					{/* <Card.Title>Special title treatment</Card.Title> */}
-					<Card.Text>
+
+					<div>
 					<p>Its common to use Express.js with Node.js. Express.js simplifies the process of building web applications on top of the capabilities provided by Node.js. <br /><br />
 
 					Express is often referred to as a web application framework for Node.js, and many Node.js developers choose Express for building web servers and APIs due to its simplicity and flexibility.In summary, Node.js is the runtime environment that allows you to run JavaScript on the server side, while Express.js is a web application framework built on top of Node.js that simplifies the process of building web applications and APIs. Developers often use them together to take advantage of both the core capabilities of Node.js and the additional features provided by Express.js.</p>
@@ -112,10 +110,10 @@ const Blog = () => {
 					<span className='text-danger fw-bold text-decoration-underline'>Event-Driven:</span> Node.js is event-driven and non-blocking, which means it can handle a large number of simultaneous connections efficiently.
 					<br />
 					<span className='text-danger fw-bold text-decoration-underline'>No Built-in Web Framework:</span>  Node.js does not come with a built-in web framework. It provides the core functionality for building servers, but developers often use additional libraries or frameworks to simplify the process.
-					</Card.Text>
+					</div>
 
 
-					<Card.Text>
+					<div>
 					<br />
 					<span className='text-info fw-bold text-decoration-underline'>Express.js:</span>
 					<br />
@@ -130,8 +128,8 @@ const Blog = () => {
 					<span className='text-danger fw-bold text-decoration-underline'>Templating Engines:</span>  Express.js supports various templating engines, making it easier to generate dynamic HTML content on the server.
 
 					<span className='text-danger fw-bold text-decoration-underline'>HTTP Utility Methods:</span>  Express.js provides utility methods for handling common HTTP tasks, such as setting headers, sending responses, and parsing request bodies.
-					</Card.Text>
-					{/* <Button variant="primary">Go somewhere</Button> */}
+					</div>
+
 				</Card.Body>
 
 			</Card>
@@ -143,8 +141,8 @@ const Blog = () => {
 				<Card.Header as="h5" className='text-success fw-bold text-center  fs-3'>What is a custom hook, and why will we create a custom hook?</Card.Header>
 
 				<Card.Body className=''>
-					{/* <Card.Title>Special title treatment</Card.Title> */}
-					<Card.Text>
+
+					<div>
 					A custom hook in React is a JavaScript function that starts with the word use and allows you to reuse stateful logic in different components. Custom hooks are a way to extract and share component logic, making it more reusable and easier to manage.
 					<br /> <br />
 					<span className='text-info fw-bold'>The primary reasons for creating a custom hook in React include:</span>
@@ -162,18 +160,17 @@ const Blog = () => {
 					Example: A custom hook can encapsulate logic related to user authentication. This logic might not directly impact the rendering of the UI but is essential for managing the authentication state across different parts of your application.
 
 
-					</Card.Text>
+					</div>
 
 
 
-					<Card.Text>
-
-					</Card.Text>
-					{/* <Button variant="primary">Go somewhere</Button> */}
 				</Card.Body>
 
 			</Card>
+
 		</Container>
+
+
 		</div>
 	);
 };

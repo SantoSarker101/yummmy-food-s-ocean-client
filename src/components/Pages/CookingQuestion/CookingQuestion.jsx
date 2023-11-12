@@ -19,7 +19,7 @@ const CookingQuestion = () => {
 					<Container>
 
 
-					<Row class="row g-3 text-center mx-auto">
+					<Row className="row g-3 text-center mx-auto">
 
 					<FloatingLabel htmlFor="text area">Your Question</FloatingLabel>
 

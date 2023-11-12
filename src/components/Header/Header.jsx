@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import moment from 'moment';
-import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import { Button, Container, Figure, Nav, Navbar } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
 import { FaUserCircle } from 'react-icons/fa';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Header = () => {
+
+	const {user,logOut} = useContext(AuthContext)
+
+
+	const handleSignOut = () =>{
+		logOut()
+		.then(result => {})
+		.catch(error => console.error(error));
+	}
+
+
 	return (
 		<div>
 			<div className="text-center">
@@ -27,20 +39,20 @@ const Header = () => {
 				<Navbar.Collapse id="responsive-navbar-nav">
 
 				<Nav className="mx-auto text-dark">
-					<div className='text-danger'>
-						<NavLink to='/' className={({isActive}) => (isActive ? 'text-success fw-bolder' : 'text-decoration-none text-dark')}>
+					<div className='text-danger py-2'>
+						<NavLink to='/' className={({isActive}) => (isActive ? 'text-success fw-bolder' : 'text-decoration-none text-dark fw-bold')}>
 						Home
 					</NavLink>
 					</div>
 
-					<div className='mx-lg-4'>
-						<NavLink to='/blog' className={({isActive}) => (isActive ? 'text-success fw-bolder' : 'text-decoration-none text-dark')}>
+					<div className='mx-lg-4 py-2'>
+						<NavLink to='/blog' className={({isActive}) => (isActive ? 'text-success fw-bolder' : 'text-decoration-none text-dark fw-bold')}>
 						Blog
 					</NavLink>
 					</div>
 
-					<div>
-						<NavLink to='/about' className={({isActive}) => (isActive ? 'text-success fw-bolder' : 'text-decoration-none text-dark')}>
+					<div className='py-2'>
+						<NavLink to='/about' className={({isActive}) => (isActive ? 'text-success fw-bolder' : 'text-decoration-none text-dark fw-bold')}>
 						About Us
 					</NavLink>
 					</div>
@@ -52,30 +64,69 @@ const Header = () => {
 
 
 				<div>
-					<NavLink to='/login' className={({isActive}) => (isActive ? 'text-success' : 'text-decoration-none text-dark')}>
+					{/* <Link to='/login'>
+
 						<Button variant="dark">Login</Button>
-					</NavLink>
+
+					</Link> */}
 				</div>
 
-				<div className='mx-lg-3'>
-					<NavLink to='/register' className={({isActive}) => (isActive ? 'text-success' : 'text-decoration-none text-dark')}>
-						<Button variant="dark">Register</Button>
-					</NavLink>
+				<div className=''>
+
 				</div>
 
-
-				<div className='mx-lg-3'>
-					<NavLink to='/logout' className={({isActive}) => (isActive ? 'text-success' : 'text-decoration-none text-dark')}>
-						<Button variant="dark">Log out</Button>
-					</NavLink>
-				</div>
 
 
 				<div className='mx-lg-3 fs-1'>
-					<NavLink className={({isActive}) => (isActive ? 'text-success' : 'text-dark')}>
-					<FaUserCircle></FaUserCircle>
-					</NavLink>
+
+					{/* <FaUserCircle>
+
+					</FaUserCircle> */}
+
 				</div>
+
+				{user ? <span className='py-2'>
+
+					<span className='fw-bold me-3'>{user.displayName}</span>
+
+					<Figure.Image
+					width={35}
+					height={40}
+					alt="171x180"
+					className='rounded-circle mx-4'
+					src={user.photoURL}
+				/>
+
+				<Button onClick={handleSignOut} variant="dark" className='ms-3'>Log out</Button>
+
+					</span>  :
+
+
+				<div className='py-3'>
+					<Link to='/login'>
+
+						<Button
+						className='fw-bold'
+						variant="dark">Login</Button>
+
+					</Link>
+
+
+					<Link to='/register'>
+
+						<Button variant="dark" className='ms-4 fw-bold'>Register</Button>
+
+					</Link>
+				</div>
+
+					}
+
+
+				{/* <div className='mx-lg-3'>
+
+
+
+				</div> */}
 
 
 				</Nav>

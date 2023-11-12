@@ -8,6 +8,7 @@ import ErrorPage from "../components/Pages/ErrorPage/ErrorPage";
 import About from "../components/Pages/About/About";
 import Register from "../components/AuthenticPages/Register/Register";
 import Login from "../components/AuthenticPages/Login/Login";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
 	{
@@ -37,7 +38,7 @@ const router = createBrowserRouter([
 			},
 			{
 				path: '/viewRecipes/:id',
-				element: <ViewRecipes></ViewRecipes>,
+				element: <PrivateRoute><ViewRecipes></ViewRecipes></PrivateRoute>,
 				loader: ({params}) => fetch(`http://localhost:5000/chef-recipes-unic-data/${params.id}`)
 			},
 			{

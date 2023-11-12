@@ -1,9 +1,63 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Col, Container, Figure, Form, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import yummy from '../../../../public/yummy6.png'
+import { AuthContext } from '../../../providers/AuthProvider';
+import { ToastContainer, toast } from 'react-toastify';
+import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
+	const [error,setError] = useState('');
+	const {createUser} = useContext(AuthContext)
+	const [show,setShow] = useState(false)
+
+	const handleSignUp = event => {
+		event.preventDefault();
+
+		const form = event.target;
+		const name = form.name.value
+		const email = form.email.value;
+		const password = form.password.value;
+		const photo = form.photo.value
+
+		console.log(name,email,password,photo);
+
+
+		setError('');
+
+		if(password.length < 6){
+			setError('Password Must Be 6 Characters of Longer');
+		}
+
+		createUser(email,password)
+		.then(result => {
+			const loggedUser = result.user
+			console.log(loggedUser);
+			toast("Created Your Account")
+
+			updateUserData(result.user,name,photo)
+			setError('')
+			form.reset();
+		})
+		.catch(error => {
+			console.log(error);
+			setError(error.message)
+		})
+	}
+
+
+	const updateUserData = (user,name,photoURL) => {
+		updateProfile(user, {
+			displayName: name,
+			photoURL : photoURL,
+		})
+		.then(() =>{
+			console.log('User name update')
+		})
+		.catch(error => {
+			setError(error.message);
+		})
+	}
 	return (
 		<div className='bg-dark text-light'>
 
@@ -25,10 +79,11 @@ const Register = () => {
 
 				<h2 className='mt-3 mb-5 text-center' >Sign Up to Yummmy Foods Ocean</h2>
 
-				<Form>
+			<Form onSubmit={handleSignUp}>
 
 
-				<Form.Group className="mb-4" controlId="formBasicEmail">
+				<Form.Group className="mb-4" controlId="formBasicName">
+
 					<Form.Label>Your Name</Form.Label>
 
 					<Form.Control className='text-center' type="text"
@@ -39,6 +94,7 @@ const Register = () => {
 
 
 				<Form.Group className="mb-1" controlId="formBasicEmail">
+
 					<Form.Label>Email address</Form.Label>
 
 					<Form.Control
@@ -50,20 +106,30 @@ const Register = () => {
 
 
 				<Form.Group className="mb-4 mt-4" controlId="formBasicPassword">
+
 					<Form.Label>Password</Form.Label>
-					<Form.Control
-					className='text-center'type="password"
-					name="password"
-					placeholder="Write Password" required />
+
+					<Form.Control type={show ? 'text' : 'password'} name='password' placeholder="Password" required />
+
+					<p onClick={() => setShow(!show)}>
+						<small>
+							{
+								show ? <span>Hide Password</span> : <span>Show Password</span>
+							}
+						</small>
+					</p>
+
 				</Form.Group>
 
 
-				<Form.Group className="mb-4" controlId="formBasicPassword">
+				<Form.Group className="mb-4" controlId="formBasicPhoto">
+
 					<Form.Label>Photo URL</Form.Label>
 					<Form.Control
 					className='text-center'type="text"
 					name="photo"
-					placeholder="Photo URL" />
+					placeholder="Photo URL" required />
+					
 				</Form.Group>
 
 
@@ -77,7 +143,7 @@ const Register = () => {
 				<br /><br />
 
 
-				<Form.Text className="text-warning fw-bold mt-5 text-center">
+				<Form.Text className="text-warning fw-bold mt-5 mb-4 text-center">
 					<div>
 						Already Have an Account ? <Link to='/login' className='text-info'>Login</Link>
 					</div>
@@ -85,8 +151,10 @@ const Register = () => {
 
 
 
-				<Form.Text className="text-warning fw-bold mt-4">
-
+				<Form.Text className="text-danger fw-bold mt-5 text-center">
+					{
+						error && <p className='mt-4'>Error:  {error}</p>
+					}
 				</Form.Text>
 
 
