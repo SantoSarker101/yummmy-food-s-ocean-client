@@ -12,7 +12,7 @@ const Home = () => {
 	const [recipesData,setRecipesData] = useState([]);
 
 	useEffect(() => {
-		fetch('http://localhost:5000/chef-recipes-all-data')
+		fetch('https://zany-erin-lovebird-hem.cyclic.app/chef-recipes-all-data')
 		.then(res => res.json())
 		.then(data => setRecipesData(data))
 		.catch(error => console.error(error))

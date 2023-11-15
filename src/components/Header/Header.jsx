@@ -92,7 +92,7 @@ const Header = () => {
 					<Figure.Image
 					width={35}
 					height={40}
-					alt="171x180"
+					alt="35x40"
 					className='rounded-circle mx-4'
 					src={user.photoURL}
 				/>

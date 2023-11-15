@@ -2,9 +2,9 @@ import React, { useContext, useRef, useState } from 'react';
 import { Button, Col, Container, Figure, Form, Row } from 'react-bootstrap';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import yummy from '../../../../public/yummy6.png'
+import yummy from '../../../pictures/yummy6.png'
 import { AuthContext } from '../../../providers/AuthProvider';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider, } from 'firebase/auth';
 import { ToastContainer, toast } from 'react-toastify';
 
 const Login = () => {
@@ -14,22 +14,37 @@ const Login = () => {
 	console.log(location);
 	const from = location?.state?.from?.pathname || '/';
 
-	const {SignInPop,signIn,passwordReset} = useContext(AuthContext)
+	const {SignInGooglePop,signInGithubPop,signIn,passwordReset} = useContext(AuthContext)
 	const emailRef = useRef();
 
 	const navigate = useNavigate();
 
-	const provider = new GoogleAuthProvider();
+	const googleProvider = new GoogleAuthProvider();
 
 	const handleGoogleSignIn = () =>{
-		SignInPop(provider)
+		SignInGooglePop(googleProvider)
 		.then(result => {
 			const user = result.user;
 			console.log(user);
 			navigate(from, {replace: true})
+			toast("You are Signed In with Google");
 		})
 		.catch(error => {
 			console.log(error);
+		})
+	}
+
+
+
+	const githubProvider = new GithubAuthProvider()
+
+	const handleGithubSignIn = () => {
+		signInGithubPop(githubProvider)
+		.then(result => {
+			const user = result.user
+			console.log(user);
+			navigate(from, {replace: true})
+			toast("You are Signed In With Github");
 		})
 	}
 
@@ -48,10 +63,12 @@ const Login = () => {
 			const loggedUser = result.user;
 			console.log(loggedUser);
 			navigate(from, {replace: true})
+			toast("You are Signed In");
 			form.reset()
 		})
 		.catch(error => {
 			console.log(error);
+			setError(error.message)
 		})
 
 	}
@@ -146,7 +163,7 @@ const Login = () => {
 
 				<Form.Group className="mb-3 mt-4 d-flex justify-content-center">
 
-      			<Button variant="info" className='fw-bold d-flex align-items-center justify-content-center'>
+      			<Button onClick={handleGithubSignIn} variant="info" className='fw-bold d-flex align-items-center justify-content-center'>
 
 					<span>Sign-in With GitHub</span>
 
@@ -169,7 +186,7 @@ const Login = () => {
 
 
 				<Form.Text className="text-warning fw-bold">
-
+					{error}
 				</Form.Text>
 
 

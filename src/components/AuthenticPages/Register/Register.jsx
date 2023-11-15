@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Button, Col, Container, Figure, Form, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import yummy from '../../../../public/yummy6.png'
+import { Link, useNavigate } from 'react-router-dom';
+import yummy from '../../../pictures/yummy6.png'
 import { AuthContext } from '../../../providers/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import { updateProfile } from 'firebase/auth';
@@ -10,6 +10,7 @@ const Register = () => {
 	const [error,setError] = useState('');
 	const {createUser} = useContext(AuthContext)
 	const [show,setShow] = useState(false)
+	const navigate = useNavigate();
 
 	const handleSignUp = event => {
 		event.preventDefault();
@@ -34,6 +35,7 @@ const Register = () => {
 			const loggedUser = result.user
 			console.log(loggedUser);
 			toast("Created Your Account")
+			navigate('/');
 
 			updateUserData(result.user,name,photo)
 			setError('')
@@ -129,14 +131,14 @@ const Register = () => {
 					className='text-center'type="text"
 					name="photo"
 					placeholder="Photo URL" required />
-					
+
 				</Form.Group>
 
 
 				<Form.Group className="mb-4" controlId="formBasicCheckbox">
 					<Form.Check type="checkbox"
 					name='accept'
-					label="Accept Terms and Conditions" />
+					label={<>Accept <Link className='text-info' to='/terms'>Terms and Conditions</Link> </>} />
 				</Form.Group>
 
 				<Button className='mb-3' variant="outline-light" type='submit'>Submit</Button>
@@ -155,11 +157,6 @@ const Register = () => {
 					{
 						error && <p className='mt-4'>Error:  {error}</p>
 					}
-				</Form.Text>
-
-
-				<Form.Text className="text-info fw-bold mt-4">
-
 				</Form.Text>
 
 

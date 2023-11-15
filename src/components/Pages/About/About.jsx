@@ -1,5 +1,5 @@
 import React from 'react';
-import foodPic from '../../../../public/fooddPic.jpg'
+import foodPic from '../../../pictures/fooddPic.jpg'
 import { Card, Container } from 'react-bootstrap';
 
 const About = () => {

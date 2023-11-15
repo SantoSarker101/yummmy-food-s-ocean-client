@@ -9,6 +9,7 @@ import About from "../components/Pages/About/About";
 import Register from "../components/AuthenticPages/Register/Register";
 import Login from "../components/AuthenticPages/Login/Login";
 import PrivateRoute from "./PrivateRoute";
+import Terms from "../components/Pages/Terms/Terms";
 
 const router = createBrowserRouter([
 	{
@@ -33,13 +34,17 @@ const router = createBrowserRouter([
 				element: <Register></Register>
 			},
 			{
+				path: '/terms',
+				element: <Terms></Terms>
+			},
+			{
 				path: 'login',
 				element: <Login></Login>
 			},
 			{
 				path: '/viewRecipes/:id',
 				element: <PrivateRoute><ViewRecipes></ViewRecipes></PrivateRoute>,
-				loader: ({params}) => fetch(`http://localhost:5000/chef-recipes-unic-data/${params.id}`)
+				loader: ({params}) => fetch(`https://zany-erin-lovebird-hem.cyclic.app/chef-recipes-unic-data/${params.id}`)
 			},
 			{
 				path: '/loadingSpinner',

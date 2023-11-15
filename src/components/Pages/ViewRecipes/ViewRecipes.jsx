@@ -16,7 +16,7 @@ const ViewRecipes = () => {
 
 
 	return (
-		<div>
+		<>
 
 			<div>
 
@@ -92,7 +92,7 @@ const ViewRecipes = () => {
 				</div>
 			</div>
 
-		</div>
+		</>
 	);
 };
 
